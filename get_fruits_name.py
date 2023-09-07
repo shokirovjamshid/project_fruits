@@ -1,3 +1,4 @@
+from csv import reader
 def get_frutis_name(data:str)->list:
     """
     This function returns the names of the fruits
@@ -7,6 +8,9 @@ def get_frutis_name(data:str)->list:
     returns:
         list: list of fruits names
     """
-    return
-
-    
+    f = open(data, mode='r+')
+    data_reader = list(reader(f))
+    name = []
+    for i in data_reader[1:]:
+        name.append(i[0])
+    return name
